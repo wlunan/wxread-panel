@@ -67,10 +67,10 @@
 在青龙面板的「订阅管理」新建订阅，或进入容器终端后执行以下命令，即可拉取本项目：
 
 ```bash
-ql repo https://github.com/wlunan/wxread-panel.git "" "" "" "master"
+ql repo https://github.com/wlunan/wxread-panel.git "main.py|config.py|push.py" "" "" "master"
 ```
 
-> `ql repo` 只负责拉取/更新脚本；首次使用仍需安装 Python 依赖并配置环境变量。订阅管理中可直接将上述整行作为订阅命令，以便后续自动更新。
+> 第 2 个参数是白名单，必须保留 `main.py|config.py|push.py`，否则部分青龙版本会将空白名单当作“不保留任何文件”。`ql repo` 只负责拉取/更新脚本；首次使用仍需安装 Python 依赖并配置环境变量。订阅管理中可直接将上述整行作为订阅命令，以便后续自动更新。
 
 - 依赖管理 -> Python3 -> 创建依赖 -> 安装 `requests`
 - 在「环境变量」里配置上表变量
