@@ -130,7 +130,8 @@ def read():
     synckey_repair_attempts = 0
 
     while read_seconds < target_seconds:
-        data.pop('s')
+        # 首轮请求尚未生成签名；后续循环则丢弃上一轮的签名后重新计算。
+        data.pop('s', None)
         data['b'] = random.choice(book)
         data['c'] = random.choice(chapter)
         thisTime = int(time.time())
